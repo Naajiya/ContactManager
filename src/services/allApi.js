@@ -8,3 +8,7 @@ export const addContact=async(contact)=>{
 export const getContact = async()=>{
     return await commonAPI("GET", `${SERVER_URL}/allContacts`, "")
 }
+
+export const deletContact =async(contact)=>{
+    return await commonAPI("DELETE",`${SERVER_URL}/allContacts/${contact}`,{} )
+}

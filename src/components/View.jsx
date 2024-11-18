@@ -7,10 +7,11 @@ import { getContact } from '../services/allApi';
 function View({ addContactResp }) {
 
   const [allContacts, setAllContact] = useState([])
+  const [deleteCard, setDeleteCard]=useState('')
 
   useEffect(() => {
     getAllContacts()
-  }, [addContactResp])
+  }, [addContactResp,deleteCard])
 
 
   const getAllContacts = async () => {
@@ -26,12 +27,13 @@ function View({ addContactResp }) {
   return (
     <>
       <Row className='container border border-dark p-3 align-items-center justify-content-center text-center mt-4 d-flex'>
-
+<h2>Contacts</h2>
         {
+          
           allContacts.length > 0 ?
           allContacts?.map(contact=>(
         <Col lg={4} md={4} sm={12}>
-          <Contactcard contact={contact}/>
+          <Contactcard contact={contact} setDeleteCard={setDeleteCard}/>
         </Col>
         ))
         :
