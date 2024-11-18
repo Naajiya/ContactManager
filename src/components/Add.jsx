@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import { addContact } from '../services/allApi';
 
 
-function Add() {
+function Add({setAddContactResp}) {
 
   const [contactDetail,setContactDetail]=useState({name:'',phone:''})
   console.log(contactDetail)
@@ -24,6 +24,7 @@ function Add() {
         const result=await addContact(contactDetail)
         console.log(result);
         console.log(`result.data = ${result.data}`)
+        setAddContactResp(result.data)
         handleClose()
       }catch(err){
         console.log(err)
@@ -58,7 +59,7 @@ function Add() {
             </FloatingLabel>
 
             <FloatingLabel controlId="floatingInput" label="Phone Number" className="mb-3">
-              <Form.Control onChange={(e)=>setContactDetail({...contactDetail,phone:e.target.value})} type="number" placeholder="Phone Number" />
+              <Form.Control onChange={(e)=>setContactDetail({...contactDetail,phone:e.target.value})} type="tel" pattern="[0-9]{10}" placeholder="Phone Number" />
             </FloatingLabel>
 
           </Modal.Body>

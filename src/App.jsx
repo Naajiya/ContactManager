@@ -8,13 +8,13 @@ import View from './components/View'
 
 function App() {
 
-
+  const [addContactResp,setAddContactResp]=useState('')
   return (
     <>
       <div className='container'>
         <div className='d-felx align-items-center justify-content-center text-center' style={{minHeight:'100vh'}}>
-          <Add/>
-          <View/>
+          <Add setAddContactResp={setAddContactResp}/>
+          <View addContactResp={addContactResp}/>
         </div>
       </div>
     </>

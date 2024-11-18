@@ -2,20 +2,21 @@ import React from 'react'
 import Card from 'react-bootstrap/Card';
 
 
-function Contactcard() {
+function Contactcard({contact}) {
+  console.log(contact)
   return (
     <>
-    <div className='d-flex border border-dark p-2 text-light bg-dark rounded'>
+    <div className='m-2 d-flex border border-dark p-2 text-light bg-dark rounded'>
       <div className='p-3 pt-3 justif'>
       <i class="fa-solid fa-user-tie fa-2x"></i>
       
       </div>
-       <Card className='bg-warning text-light'>
+       <Card className='bg-warning text-light' style={{width:'40vh'}}>
         
         <Card.Body>
-        <Card.Title>Contact Name</Card.Title>
+        <Card.Title>{contact.name}</Card.Title>
         <Card.Text>
-            Phone number
+            {contact.phone}
           </Card.Text>
         </Card.Body>
       </Card>
